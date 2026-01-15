@@ -1,35 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Login – Online Exam</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <h2>Online Examination System</h2>
 
-  <form onsubmit="login(event)">
-    <input type="text" id="username" placeholder="Username" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
+    <!-- Floating Particles -->
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div>
 
-    <select id="role">
-      <option value="student">Student</option>
-      <option value="admin">Admin</option>
-    </select><br>
+    <div class="container">
+        <h1>Login</h1>
+        <p style="text-align:center; margin-bottom:15px; opacity:0.8;">
+            Enter your credentials to start the exam
+        </p>
 
-    <button type="submit">Login</button>
-  </form>
+        <form action="instructions.html">
+            <input type="text" placeholder="Enter Username" required>
+            <input type="password" placeholder="Enter Password" required>
 
-  <script>
-    function login(e) {
-      e.preventDefault();
-      let role = document.getElementById("role").value;
+            <button type="submit">Start</button>
+        </form>
+    </div>
 
-      if (role === "student") {
-        window.location.href = "instructions.html";
-      } else {
-        window.location.href = "admin.html";
-      }
-    }
-  </script>
 </body>
 </html>

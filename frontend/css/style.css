@@ -1,7 +1,9 @@
-/* ==============================
-   GLOBAL & RESET
-============================== */
+/* ============================================================
+   ULTRA PREMIUM FRONTEND UI  
+   Neon Glow + Glassmorphism + Floating Animations + Cyber Theme
+============================================================ */
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -9,193 +11,250 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* Background Animation */
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #4f5bd5, #962fbf, #d62976);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
+    height: 100vh;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: animatedBg 10s infinite ease-in-out;
 }
 
-/* animated gradient */
-@keyframes gradientMove {
+@keyframes animatedBg {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* ==============================
-   GLASS CONTAINER
-============================== */
-
+/* Card Container with Neon Glow + Glass */
 .container {
     width: 95%;
-    max-width: 480px;
-    background: rgba(255, 255, 255, 0.15);
+    max-width: 460px;
     padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(12px);
-    color: #fff;
-    animation: fadeIn 0.8s ease-in-out;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+
+    /* Glass border */
+    border: 2px solid rgba(255, 255, 255, 0.25);
+
+    /* Neon glow */
+    box-shadow:
+        0 0 25px rgba(0, 255, 255, 0.5),
+        0 0 50px rgba(0, 128, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+
+    animation: fadeIn 0.9s ease-out;
 }
 
+/* Floating Glow Elements */
+.container::before,
+.container::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #00eaff, #0077ff);
+    filter: blur(50px);
+    opacity: 0.35;
+
+    animation: float 6s infinite ease-in-out;
+}
+
+.container::before {
+    top: -20px;
+    left: -20px;
+}
+
+.container::after {
+    bottom: -20px;
+    right: -20px;
+}
+
+@keyframes float {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(20px, -20px); }
+    100% { transform: translate(0,0); }
+}
+
+/* Fade Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(25px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Headings */
 h1, h2, h3 {
+    color: #e9f1ff;
     text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 12px rgba(0,255,255,0.6);
 }
 
-/* ==============================
-   INPUT STYLING
-============================== */
+/* ============================================================
+   INPUTS (Neon Underline + Glow Focus)
+============================================================ */
 
 input, select {
     width: 100%;
-    padding: 12px 14px;
-    margin: 12px 0;
-    background: rgba(255, 255, 255, 0.25);
+    padding: 14px;
+    margin: 14px 0;
+
+    background: rgba(255, 255, 255, 0.18);
     border: none;
-    border-radius: 10px;
     outline: none;
+    border-radius: 10px;
+
     color: #fff;
     font-size: 16px;
-    transition: 0.2s;
+    transition: 0.3s;
+    backdrop-filter: blur(12px);
+
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.2);
 }
 
 input::placeholder {
-    color: #e2e2e2;
+    color: #d1d1d1;
 }
 
 input:focus, select:focus {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.02);
+    background: rgba(255,255,255,0.28);
+    box-shadow:
+        0 0 12px #00eaff,
+        0 0 20px #0099ff;
+    transform: scale(1.03);
 }
 
-/* ==============================
-   BUTTON DESIGN
-============================== */
+/* ============================================================
+   BUTTONS (Neon + Liquid Hover Effect)
+============================================================ */
 
 button {
     width: 100%;
-    padding: 12px;
-    margin-top: 15px;
+    padding: 14px;
+    margin-top: 18px;
+
+    background: linear-gradient(135deg, #00eaff, #0059ff);
     border: none;
     border-radius: 12px;
+
     color: white;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
+
     cursor: pointer;
-    background: linear-gradient(135deg, #00d4ff, #007bff);
-    transition: 0.25s ease;
+    transition: 0.25s ease-in-out;
+
+    /* Glow */
+    box-shadow:
+        0 0 18px rgba(0, 255, 255, 0.5),
+        0 0 28px rgba(0, 128, 255, 0.3);
 }
 
 button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transform: scale(1.07);
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.7),
+        0 0 60px rgba(0, 128, 255, 0.6);
 }
 
-/* ==============================
+/* ============================================================
    INSTRUCTIONS PAGE
-============================== */
+============================================================ */
 
 .instructions-box {
-    background: rgba(255, 255, 255, 0.18);
     padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
+    border-radius: 14px;
 
-.instructions-box ul {
-    padding-left: 18px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(10px);
+
+    box-shadow: inset 0 0 18px rgba(0, 255, 255, 0.3);
 }
 
 .instructions-box li {
-    margin: 8px 0;
-    font-size: 16px;
+    margin: 10px 0;
+    font-size: 17px;
+    color: #e8f7ff;
 }
 
-/* ==============================
-   EXAM PAGE
-============================== */
+/* ============================================================
+   EXAM PAGE ELEMENTS
+============================================================ */
 
 .timer {
-    background: rgba(0, 0, 0, 0.25);
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px 20px;
+    border-radius: 12px;
+
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: bold;
+
+    text-shadow: 0 0 12px cyan;
+    color: #00eaff;
 }
 
 .question-box {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.25);
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 14px;
     margin-bottom: 20px;
+
+    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
 .options label {
     display: block;
-    padding: 12px;
+    padding: 14px;
     margin: 10px 0;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.22);
+
+    background: rgba(255,255,255,0.25);
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.25s;
+
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.25);
 }
 
 .options label:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.02);
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 15px cyan,
+        inset 0 0 12px rgba(0, 255, 255, 0.3);
 }
 
-/* ==============================
-   ADMIN CARDS
-============================== */
-
-.admin-card {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 12px;
-    margin: 10px 0;
-    transition: 0.25s;
-}
-
-.admin-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-/* ==============================
+/* ============================================================
    RESULT PAGE
-============================== */
+============================================================ */
 
 .score-box {
     font-size: 55px;
-    font-weight: bold;
     text-align: center;
-    margin: 20px 0;
+    font-weight: 900;
+    margin: 25px 0;
+    text-shadow: 0px 0px 25px cyan;
 }
 
-/* ==============================
-   RESPONSIVE DESIGN
-============================== */
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 
 @media (max-width: 480px) {
     .container {
         padding: 25px;
-    }
-
-    button {
-        font-size: 16px;
     }
 }

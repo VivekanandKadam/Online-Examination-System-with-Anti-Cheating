@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Exam</title>
-  <script src="js/timer.js"></script>
-  <script src="js/exam.js"></script>
+    <meta charset="UTF-8">
+    <title>Exam – Online Exam</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="startExam()">
 
-<h2>Online Exam</h2>
-<p id="timer"></p>
+<body>
 
-<form id="examForm">
-  <p>1. Java is?</p>
-  <input type="radio" name="q1" value="wrong"> OS<br>
-  <input type="radio" name="q1" value="correct"> Programming Language<br>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div>
 
-  <br>
-  <button type="button" onclick="submitExam()">Submit</button>
-</form>
+    <div class="container">
+
+        <div class="timer" id="timer">Time Left: 10:00</div>
+
+        <div class="question-box">
+            <h3 id="question">Loading question...</h3>
+
+            <div class="options" id="options">
+                <!-- Options will load via exam.js -->
+            </div>
+        </div>
+
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="js/timer.js"></script>
+    <script src="js/exam.js"></script>
 
 </body>
 </html>
