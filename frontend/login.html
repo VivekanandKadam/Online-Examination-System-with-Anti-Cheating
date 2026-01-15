@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>Online Examination System</h2>
+
+  <form onsubmit="login(event)">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+
+    <select id="role">
+      <option value="student">Student</option>
+      <option value="admin">Admin</option>
+    </select><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    function login(e) {
+      e.preventDefault();
+      let role = document.getElementById("role").value;
+
+      if (role === "student") {
+        window.location.href = "instructions.html";
+      } else {
+        window.location.href = "admin.html";
+      }
+    }
+  </script>
+</body>
+</html>
