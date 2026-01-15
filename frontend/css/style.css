@@ -1,260 +1,78 @@
-/* ============================================================
-   ULTRA PREMIUM FRONTEND UI  
-   Neon Glow + Glassmorphism + Floating Animations + Cyber Theme
-============================================================ */
-
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* Background Animation */
 body {
-    height: 100vh;
-    padding: 20px;
+    min-height: 100vh;
+    background: #f1f5f9;
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    background-size: 400% 400%;
-    animation: animatedBg 10s infinite ease-in-out;
+    justify-content: center;
 }
 
-@keyframes animatedBg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.card, .panel {
+    background: white;
+    padding: 30px;
+    width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Card Container with Neon Glow + Glass */
-.container {
-    width: 95%;
-    max-width: 460px;
-    padding: 35px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-
-    /* Glass border */
-    border: 2px solid rgba(255, 255, 255, 0.25);
-
-    /* Neon glow */
-    box-shadow:
-        0 0 25px rgba(0, 255, 255, 0.5),
-        0 0 50px rgba(0, 128, 255, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.1);
-
-    animation: fadeIn 0.9s ease-out;
+.panel {
+    width: 800px;
 }
 
-/* Floating Glow Elements */
-.container::before,
-.container::after {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-
-    background: linear-gradient(135deg, #00eaff, #0077ff);
-    filter: blur(50px);
-    opacity: 0.35;
-
-    animation: float 6s infinite ease-in-out;
-}
-
-.container::before {
-    top: -20px;
-    left: -20px;
-}
-
-.container::after {
-    bottom: -20px;
-    right: -20px;
-}
-
-@keyframes float {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(20px, -20px); }
-    100% { transform: translate(0,0); }
-}
-
-/* Fade Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Headings */
-h1, h2, h3 {
-    color: #e9f1ff;
+h2 {
     text-align: center;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 12px rgba(0,255,255,0.6);
+    margin-bottom: 20px;
+    color: #1e293b;
 }
 
-/* ============================================================
-   INPUTS (Neon Underline + Glow Focus)
-============================================================ */
+.panel-card {
+    background: #f8fafc;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
 
 input, select {
     width: 100%;
-    padding: 14px;
-    margin: 14px 0;
-
-    background: rgba(255, 255, 255, 0.18);
-    border: none;
-    outline: none;
-    border-radius: 10px;
-
-    color: #fff;
-    font-size: 16px;
-    transition: 0.3s;
-    backdrop-filter: blur(12px);
-
-    box-shadow: inset 0 0 8px rgba(255,255,255,0.2);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
 }
 
-input::placeholder {
-    color: #d1d1d1;
-}
-
-input:focus, select:focus {
-    background: rgba(255,255,255,0.28);
-    box-shadow:
-        0 0 12px #00eaff,
-        0 0 20px #0099ff;
-    transform: scale(1.03);
-}
-
-/* ============================================================
-   BUTTONS (Neon + Liquid Hover Effect)
-============================================================ */
-
-button {
+.btn {
     width: 100%;
-    padding: 14px;
-    margin-top: 18px;
-
-    background: linear-gradient(135deg, #00eaff, #0059ff);
-    border: none;
-    border-radius: 12px;
-
+    padding: 12px;
+    background: #2563eb;
     color: white;
-    font-size: 18px;
+    border: none;
+    border-radius: 6px;
     font-weight: bold;
-
     cursor: pointer;
-    transition: 0.25s ease-in-out;
-
-    /* Glow */
-    box-shadow:
-        0 0 18px rgba(0, 255, 255, 0.5),
-        0 0 28px rgba(0, 128, 255, 0.3);
+    margin-top: 10px;
 }
 
-button:hover {
-    transform: scale(1.07);
-    box-shadow:
-        0 0 30px rgba(0, 255, 255, 0.7),
-        0 0 60px rgba(0, 128, 255, 0.6);
+.btn:hover {
+    background: #1e40af;
 }
 
-/* ============================================================
-   INSTRUCTIONS PAGE
-============================================================ */
-
-.instructions-box {
-    padding: 20px;
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(10px);
-
-    box-shadow: inset 0 0 18px rgba(0, 255, 255, 0.3);
-}
-
-.instructions-box li {
-    margin: 10px 0;
-    font-size: 17px;
-    color: #e8f7ff;
-}
-
-/* ============================================================
-   EXAM PAGE ELEMENTS
-============================================================ */
-
-.timer {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 12px 20px;
-    border-radius: 12px;
-
-    display: inline-block;
-    margin-bottom: 22px;
-    font-size: 22px;
-    font-weight: bold;
-
-    text-shadow: 0 0 12px cyan;
-    color: #00eaff;
-}
-
-.question-box {
-    background: rgba(255, 255, 255, 0.25);
-    padding: 20px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-
-    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.3);
+.error-text {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .options label {
     display: block;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 10px;
-
-    background: rgba(255,255,255,0.25);
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin-bottom: 8px;
     cursor: pointer;
-    transition: 0.25s;
-
-    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.25);
-}
-
-.options label:hover {
-    background: rgba(255,255,255,0.35);
-    transform: scale(1.04);
-
-    box-shadow:
-        0 0 15px cyan,
-        inset 0 0 12px rgba(0, 255, 255, 0.3);
-}
-
-/* ============================================================
-   RESULT PAGE
-============================================================ */
-
-.score-box {
-    font-size: 55px;
-    text-align: center;
-    font-weight: 900;
-    margin: 25px 0;
-    text-shadow: 0px 0px 25px cyan;
-}
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
-
-@media (max-width: 480px) {
-    .container {
-        padding: 25px;
-    }
 }

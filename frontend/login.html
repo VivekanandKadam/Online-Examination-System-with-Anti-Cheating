@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login – Online Exam</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<div class="card">
+    <h2>Online Examination System</h2>
 
-<body>
+    <input id="userId" placeholder="User ID">
+    <input id="password" type="password" placeholder="Password">
 
-    <!-- Floating Particles -->
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div>
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+    </select>
 
-    <div class="container">
-        <h1>Login</h1>
-        <p style="text-align:center; margin-bottom:15px; opacity:0.8;">
-            Enter your credentials to start the exam
-        </p>
+    <button class="btn" onclick="login()">Login</button>
+    <p class="error-text" id="error"></p>
 
-        <form action="instructions.html">
-            <input type="text" placeholder="Enter Username" required>
-            <input type="password" placeholder="Enter Password" required>
-
-            <button type="submit">Start</button>
-        </form>
-    </div>
-
-</body>
-</html>
+    <p style="text-align:center; margin-top:10px;">
+        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+    </p>
+</div>

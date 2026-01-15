@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Panel – Online Exam</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<div class="panel">
+    <h2>Admin Dashboard</h2>
 
-<body>
-
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div>
-
-    <div class="container">
-        <h1>Admin Panel</h1>
-
-        <div class="admin-card">
-            <h3>Add New Questions</h3>
-            <button>Add Question</button>
-        </div>
-
-        <div class="admin-card">
-            <h3>View All Students</h3>
-            <button>Show Students</button>
-        </div>
-
-        <div class="admin-card">
-            <h3>Exam Settings</h3>
-            <button>Configure</button>
-        </div>
+    <!-- USER MANAGEMENT -->
+    <div class="panel-card">
+        <h3>Manage Users</h3>
+        <input id="uid" placeholder="User ID">
+        <select id="urole">
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+        </select>
+        <input id="upass" placeholder="Password">
+        <button class="btn" onclick="createUser()">Create / Update</button>
+        <button class="btn" onclick="deactivateUser()">Deactivate</button>
     </div>
 
-</body>
-</html>
+    <!-- QUESTION ACCESS -->
+    <div class="panel-card">
+        <h3>Question Papers</h3>
+        <button class="btn" onclick="viewQuestions()">View Questions</button>
+        <pre id="qview"></pre>
+    </div>
+
+    <!-- RESULT ACCESS -->
+    <div class="panel-card">
+        <h3>Results</h3>
+        <button class="btn" onclick="viewResults()">View Results</button>
+        <pre id="rview"></pre>
+    </div>
+</div>

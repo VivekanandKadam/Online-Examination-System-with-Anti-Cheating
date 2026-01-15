@@ -1,33 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Result – Online Exam</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div>
-
-    <div class="container">
-        <h1>Your Result</h1>
-
-        <div class="score-box" id="score">
-            <!-- Score will be filled via JS -->
-        </div>
-
-        <button onclick="window.location.href='login.html'">
-            Back to Login
-        </button>
-    </div>
-
-    <script>
-        document.getElementById("score").innerHTML = 
-            localStorage.getItem("score") + " / 10";
-    </script>
-
-</body>
-</html>
+<div class="card">
+    <h2>Exam Completed</h2>
+    <p>Your responses have been submitted.</p>
+    <button class="btn" onclick="location.href='login.html'">Logout</button>
+</div>

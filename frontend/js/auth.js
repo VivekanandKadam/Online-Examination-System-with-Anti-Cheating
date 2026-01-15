@@ -1,35 +1,60 @@
-// ===============================
-//        AUTHENTICATION JS
-// ===============================
+// INITIAL USERS (sirf first time ke liye)
+if (!localStorage.getItem("users")) {
+    const users = {
+        "ADMIN001": { role: "admin", password: "admin123", active: true },
+        "TCH101":   { role: "teacher", password: "teach123", active: true },
+        "STD201":   { role: "student", password: "stud123", active: true }
+    };
 
-// Fake user database
-const USERS = {
-    "student123": "password123",
-    "admin": "admin123"
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+
+
+const SUPER_ADMINS = ["ROOT_ADMIN_01"];
+
+let users = JSON.parse(localStorage.getItem("users")) || {
+    "ADMIN001": { role: "admin", password: "admin123", active: true },
+    "TCH101": { role: "teacher", password: "teach123", active: true },
+    "STD201": { role: "student", password: "stud123", active: true }
 };
 
-// LOGIN FUNCTION
-function loginUser() {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const errorBox = document.getElementById("login-error");
+localStorage.setItem("users", JSON.stringify(users));
 
-    if (username === "" || password === "") {
-        errorBox.innerText = "All fields are required.";
+function login() {
+    const id = userId.value.trim();
+    const pwd = password.value.trim();
+    const role = document.getElementById("role").value;
+    const error = document.getElementById("error");
+
+    if (!id || !pwd || !role) {
+        error.innerText = "All fields required";
         return;
     }
 
-    if (USERS[username] && USERS[username] === password) {
-        localStorage.setItem("examUser", username);
-        window.location.href = "instructions.html";
-    } else {
-        errorBox.innerText = "Invalid credentials. Try again.";
+    if (SUPER_ADMINS.includes(id)) {
+        localStorage.setItem("session", JSON.stringify({ id, role: "superadmin" }));
+        location.href = "admin.html";
+        return;
     }
+
+    if (!users[id] || users[id].password !== pwd || users[id].role !== role || !users[id].active) {
+        error.innerText = "Invalid credentials";
+        return;
+    }
+
+    localStorage.setItem("session", JSON.stringify({ id, role }));
+
+    if (role === "admin") location.href = "admin.html";
+    if (role === "teacher") location.href = "teacher.html";
+    if (role === "student") location.href = "student-dashboard.html";
 }
 
-// AUTO‑REDIRECT IF LOGGED IN
-if (localStorage.getItem("examUser")) {
-    if (window.location.pathname.includes("login")) {
-        window.location.href = "instructions.html";
-    }
+function forgotPassword() {
+    const id = prompt("Enter your User ID");
+    let users = JSON.parse(localStorage.getItem("users"));
+
+    if (!users[id]) return alert("User not found");
+
+    alert("Password reset request sent to Admin (demo)");
 }

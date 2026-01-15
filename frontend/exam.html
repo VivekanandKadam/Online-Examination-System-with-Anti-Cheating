@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Exam – Online Exam</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<script src="js/fullscreen.js"></script>
+<script src="js/exam.js"></script>
+<body onload="enableFullScreen()">
 
-<body>
+<div class="panel">
+    <h2 id="question"></h2>
+    <div class="options" id="options"></div>
+    <button class="btn" onclick="next()">Next</button>
+</div>
 
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div>
-
-    <div class="container">
-
-        <div class="timer" id="timer">Time Left: 10:00</div>
-
-        <div class="question-box">
-            <h3 id="question">Loading question...</h3>
-
-            <div class="options" id="options">
-                <!-- Options will load via exam.js -->
-            </div>
-        </div>
-
-        <button onclick="nextQuestion()">Next</button>
-    </div>
-
-    <script src="js/timer.js"></script>
-    <script src="js/exam.js"></script>
-
-</body>
-</html>
+<script src="js/exam.js"></script>

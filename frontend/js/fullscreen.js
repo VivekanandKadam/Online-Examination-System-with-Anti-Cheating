@@ -1,21 +1,50 @@
-// ===============================
-//       FULLSCREEN HANDLER
-// ===============================
+/* =========================================
+   FULLSCREEN + ANTI-CHEATING HANDLER
+========================================= */
 
-// Request fullscreen
-function startFullScreenMode() {
-    let docElm = document.documentElement;
+// Only students should trigger fullscreen exam mode
+const session = JSON.parse(localStorage.getItem("session"));
 
-    if (docElm.requestFullscreen) docElm.requestFullscreen();
-    else if (docElm.mozRequestFullScreen) docElm.mozRequestFullScreen();
-    else if (docElm.webkitRequestFullscreen) docElm.webkitRequestFullscreen();
-    else if (docElm.msRequestFullscreen) docElm.msRequestFullscreen();
+if (!session || session.role !== "student") {
+    // Non-students should not be here
+    alert("Unauthorized access");
+    window.location.href = "login.html";
 }
 
-// Detect exit fullscreen = cheating attempt
-document.addEventListener("fullscreenchange", function () {
+// Request fullscreen when exam starts
+function enableFullScreen() {
+    const elem = document.documentElement;
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen(); // Safari
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen(); // IE11
+    }
+}
+
+// Detect fullscreen exit (cheating attempt)
+document.addEventListener("fullscreenchange", () => {
     if (!document.fullscreenElement) {
-        alert("You exited fullscreen! Cheating attempt detected.");
-        window.location.href = "result.html?cheated=true";
+        handleCheating("Exited fullscreen mode");
     }
 });
+
+// Detect tab switch / window blur
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        handleCheating("Switched tab or minimized window");
+    }
+});
+
+// Central cheating handler
+function handleCheating(reason) {
+    alert("Cheating detected: " + reason + ". Exam will be submitted.");
+
+    // Optional: store cheating reason
+    localStorage.setItem("cheating", reason);
+
+    // Redirect to result page
+    window.location.href = "result.html";
+}
