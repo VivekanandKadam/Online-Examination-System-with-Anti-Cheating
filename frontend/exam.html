@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam</title>
+  <script src="js/timer.js"></script>
+  <script src="js/exam.js"></script>
+</head>
+<body onload="startExam()">
+
+<h2>Online Exam</h2>
+<p id="timer"></p>
+
+<form id="examForm">
+  <p>1. Java is?</p>
+  <input type="radio" name="q1" value="wrong"> OS<br>
+  <input type="radio" name="q1" value="correct"> Programming Language<br>
+
+  <br>
+  <button type="button" onclick="submitExam()">Submit</button>
+</form>
+
+</body>
+</html>
